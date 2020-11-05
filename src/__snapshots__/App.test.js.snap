@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<form>
+  <ul
+    className="form-style-1"
+  >
+    <h1>
+       Login 
+    </h1>
+    <li>
+      <label>
+        Username 
+        <span
+          className="required"
+        >
+          *
+        </span>
+      </label>
+      <input
+        className="field-long"
+        onChange={[Function]}
+        type="name"
+      />
+      <label>
+        Password 
+        <span
+          className="required"
+        >
+          *
+        </span>
+      </label>
+      <input
+        className="field-long"
+        onChange={[Function]}
+        type="password"
+      />
+    </li>
+    <li />
+    <li>
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Submit"
+      />
+    </li>
+  </ul>
+</form>
+`;

@@ -1,0 +1,20 @@
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 60px;
+
+   font-family: "avenir next";
+    text-align: right;
+    
+}
+
+/* Clear floats after image containers */
+.row::after {
+	 font-family: "avenir next";
+	 text-align: right;
+  content: "";
+  clear: both;
+  display: table;
+}
+
