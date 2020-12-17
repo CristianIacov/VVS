@@ -29,7 +29,7 @@ onSubmitLogin1= () => {
           
 
           this.props.onRouteChange('visualize');
-          window.alert('You are logged in');
+          
         }
         else
         {
@@ -37,7 +37,7 @@ onSubmitLogin1= () => {
         	{
         		this.props.setAdmin(true);
         		 this.props.onRouteChange('admin');
-        		window.alert('You are logged in as a Admin');
+        		
         	}
         	else
 
@@ -61,9 +61,9 @@ changeRoute= () =>
 
 <li>
     <label>Username <span className="required">*</span></label>
-        <input onChange={this.onNameChange} type="name"  className="field-long"   />
+        <input onChange={this.onNameChange} type="name" id="a" className="field-long"   />
         <label>Password <span className="required">*</span></label>
-        <input  onChange={this.onPasswordChange} type="password"  className="field-long"     />
+        <input  onChange={this.onPasswordChange} type="password" id="b"  className="field-long"     />
 
 </li>
    <li>
@@ -73,7 +73,7 @@ changeRoute= () =>
     </li>
 <li>
 
-  <input onClick={this.onSubmitLogin1} type="button" value="Submit"  />
+  <input onClick={this.onSubmitLogin1} type="button" id="c" value="Submit"  />
   
  </li>  
 

@@ -4,6 +4,8 @@ import {render} from 'react-dom';
 import Login from './Components/Login';
 import Visualize from './Components/Visualize';
 import Admin from './Components/Admin';
+import StoppedServer from './Components/StoppedServer';
+import Maintenance from './Components/Maintenance';
 class App extends React.Component{
 
   constructor(){
@@ -11,6 +13,7 @@ class App extends React.Component{
     this.state={
       route: 'home',
       isAdmin: false,
+      isShutdown: false,
         user: {
         
 
@@ -19,6 +22,9 @@ class App extends React.Component{
     }
   }
 }
+stopServer = (data) =>
+  this.setState({isShutdown : data
+  });
 setAdmin = (data) =>
   this.setState({isAdmin : data
   });
@@ -43,6 +49,7 @@ setAdmin = (data) =>
   }
   render(){
   const {route} = this.state;
+  const {isShutdown} = this.state;
  return (
   
   <div>
@@ -51,17 +58,24 @@ setAdmin = (data) =>
       route ==='home'?
       <Login setAdmin={this.setAdmin} onRouteChange={this.onRouteChange}/>
       :
-      (route === 'visualize'?
+      (route === 'visualize' && isShutdown === false?
 
       <Visualize onRouteChange={this.onRouteChange}/>
       
       :
-     (route === 'admin'?
+     (route === 'admin'  && isShutdown === false?
 
-    <Admin />
+    <Admin onRouteChange={this.onRouteChange} stopServer = {this.stopServer}/>
       :
-      <p> Eroare </p>
-      ))
+      (route === 'stoppedserver'?
+
+        <StoppedServer stopServer={this.stopServer} onRouteChange={this.onRouteChange}/>
+        :
+         (route === 'maintenance'?
+          <Maintenance stopServer={this.stopServer} onRouteChange={this.onRouteChange}/>
+          :
+      <p> Serverul este oprit </p>
+      ))))
 
     
     }
